@@ -2,72 +2,62 @@ package com.company;
 
 public class Main {
 
+    public static String nama;
+    public static int umur;
+
     public static void main(String[] args) {
-	// write your code here
-//        Review review = new Review();
-        AnakReview anakReview = new AnakReview();
-        anakReview.MethodAnak();
-        anakReview.Kuliah();
-        anakReview.Kuliah("3 tahun");
+	    // write your code here
+        String nim = "6701180007";
+        nama = "Android";
+        umur = 23;
+//        System.out.println("Nama adalah : " + nama);
+//        System.out.println("Umur adalah : " +umur);
+//        System.out.println("Nim adalah : " +nim);
+
+        ReviewJava reviewJava = new ReviewJava();
+        reviewJava.BelajarJava();
+        System.out.println("Lama kuliah adalah : " + reviewJava.getLamaKuliah());
+
+        ReviewJavaChild reviewJavaChild = new ReviewJavaChild();
+        reviewJavaChild.BelajarJava();
+        reviewJavaChild.BelajarJava("2020");
+        reviewJavaChild.BelajarJava(5);
+
     }
 }
 
-class AnakReview extends Review{
+class ReviewJavaChild extends ReviewJava{
     public void MethodAnak(){
-        System.out.println("Method anak");
+        System.out.println("Method di dalam class anak");
     }
 
-    // Polymorphism Overridding
-    public void Kuliah(){
-        System.out.println("Review Android");
+    public void BelajarJava(){
+        System.out.println("Belajar Bahasa Android");
     }
 
-    // Polymorphim Overloading
-    public void Kuliah(String lamakuliah){
-        System.out.println("Lama kuliahnya " + lamakuliah);
+    public void BelajarJava(String tahun){
+        System.out.println("Belajar Bahasa Android pada tahun " + tahun);
     }
 
-
-}
-
-class Review{
-    private String nama;
-    private int umur;
-    protected String warnakulit;
-
-    public void Kuliah(){
-        System.out.println("Review java");
-    }
-
-    public Review(){
-        System.out.println("Inisialisasi kelas review");
-    }
-
-    public void setUmur(int umur) {
-        this.umur = umur;
-    }
-
-    public int getUmur() {
-        return umur;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-
-    public void DurasiKuliah(int jam, String kode){
-        System.out.println("Lama kuliahya adalah " + jam);
-        System.out.println("Kode mata kuliahya adalah " + kode);
-    }
-
-
-
-    public void Belajar(){
-        System.out.println("Belajar Android");
+    public void BelajarJava(int semester){
+        System.out.println("Belajar Bahasa Android pada semester " + semester);
     }
 }
+
+class ReviewJava{
+    private String LamaKuliah;
+    public ReviewJava(){
+        this.LamaKuliah = "3 Tahun";
+    }
+    public String getLamaKuliah() {
+        return LamaKuliah;
+    }
+
+    public void BelajarJava(){
+        System.out.println("Belajar java basic");
+    }
+}
+
+
+
 
